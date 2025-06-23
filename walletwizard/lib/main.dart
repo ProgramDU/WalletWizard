@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart'; // Generado por FlutterFire CLI
-import 'login_screen.dart';
-import 'home_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_options.dart';
 
-Future<void> main() async {
+// Importación de las pantallas
+import 'main_app.dart';
+import 'bienvenida_app.dart';
+import 'introduccion.dart';
+import 'login_screen.dart';
+import 'register_screen.dart';
+import 'home_screen.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   runApp(MyApp());
 }
 
@@ -18,43 +22,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
+      title: 'WalletWizard',
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Firebase Auth',
       theme: ThemeData(
-        primarySwatch: Colors.cyan,
+        primarySwatch: Colors.blue,
       ),
-      // Usamos StreamBuilder para controlar sesión
-      home: AuthenticationWrapper(),
+      // Ruta inicial
+      home: MainApp(),
+
+      // Opcional: definición de rutas si deseas usarlas más adelante
       routes: {
+        '/bienvenida': (context) => BienvenidaApp(),
+        '/introduccion': (context) => IntroduccionApp(),
         '/login': (context) => LoginScreen(),
+        '/register': (context) => RegisterScreen(),
         '/home': (context) => HomeScreen(),
       },
     );
   }
 }
-
-// Widget para mostrar login o home según estado de sesión
-class AuthenticationWrapper extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-      stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.active) {
-          final user = snapshot.data;
-          if (user == null) {
-            return LoginScreen();
-          } else {
-            return HomeScreen();
-          }
-        }
-        // Mostrar loading mientras espera estado
-        return Scaffold(
-          body: Center(child: CircularProgressIndicator()),
-        );
-      },
-    );
-  }
-}
-

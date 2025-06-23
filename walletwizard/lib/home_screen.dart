@@ -7,6 +7,7 @@ class HomeScreen extends StatelessWidget {
     final user = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
+      
       appBar: AppBar(
         title: Text('Bienvenido'),
         actions: [

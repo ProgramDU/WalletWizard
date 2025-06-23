@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'introduccion.dart'; 
+import 'introduccion.dart';
 
 class BienvenidaApp extends StatelessWidget {
   @override

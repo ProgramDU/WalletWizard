@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_screen.dart';
 
 class IntroduccionApp extends StatelessWidget {
   @override
@@ -11,13 +12,17 @@ class IntroduccionApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 60), // Espacio desde arriba
-              Center(
-                child: Text(
-                  'Controla tus gastos, protege tu dinero y alcanza tus objetivos financieros',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Center(
+                  child: Text(
+                    'Controla tus gastos, protege tu dinero y alcanza tus objetivos financieros',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -28,7 +33,7 @@ class IntroduccionApp extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(30), // Solo esquinas superiores redondeadas
+                    top: Radius.circular(30), // Esquinas superiores redondeadas
                   ),
                 ),
                 child: Column(
@@ -44,7 +49,7 @@ class IntroduccionApp extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => IntroduccionApp(),
+                            builder: (context) => LoginScreen(),
                           ),
                         );
                       },

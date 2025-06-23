@@ -5,7 +5,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.blue, // Fondo azul
       body: GestureDetector(
         onTap: () {
           Navigator.push(
@@ -26,9 +26,10 @@ class MainApp extends StatelessWidget {
               Text(
                 'WalletWizard',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 28,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
+                  letterSpacing: 1.2,
                 ),
               ),
             ],
