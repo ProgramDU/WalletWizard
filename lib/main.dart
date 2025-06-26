@@ -6,7 +6,8 @@ import 'home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'register_screen.dart';
 import 'gastos_page.dart'; //
-import 'profile_page.dart'; 
+import 'profile_page.dart';
+import 'dahsboard.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp ({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterScreen(),
         '/gastos': (context) => GastosPage(),
         '/profile': (context )=> ProfilePage(), // Asegúrate de tener esta página
+        '/dashboard': (context) => Dashboard(),
       },
     );
   }
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
 // Widget para mostrar login o home según estado de sesión
 class AuthenticationWrapper extends StatelessWidget {
   const AuthenticationWrapper({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
@@ -56,7 +58,7 @@ class AuthenticationWrapper extends StatelessWidget {
           if (user == null) {
             return LoginScreen();
           } else {
-            return HomePage();
+            return Dashboard(); // Cambia a tu pantalla principal
           }
         }
         // Mostrar loading mientras espera estado
