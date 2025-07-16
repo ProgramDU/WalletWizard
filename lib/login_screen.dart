@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+
 import 'register_screen.dart'; // Importa tu pantalla de registro
 
 class LoginScreen extends StatefulWidget {
@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Ini')),
+      appBar: AppBar(title: Text('Inicio de sesión')),
       backgroundColor: Colors.blue.shade700,
       body: Center(
         child: Card(

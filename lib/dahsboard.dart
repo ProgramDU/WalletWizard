@@ -20,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
 
   final List<Widget> _screens = [
     HomePage(), // pantalla de inicio
-    GraphScreen(), // Gráficas
+    GraphScreen(), // Gráficas 
     CategoryScreen(), // Categorías
     HistoryScreen(), // Historial
     NotificationsScreen(), // Notificaciones
@@ -29,7 +29,8 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
+      
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
       currentIndex: _currentIndex,

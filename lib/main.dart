@@ -1,13 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart'; // Generado por FlutterFire CLI
-import 'login_screen.dart';
-import 'home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'register_screen.dart';
-import 'gastos_page.dart'; //
-import 'profile_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
+import 'bienvenida_app.dart';
 import 'dahsboard.dart';
+import 'firebase_options.dart'; // Generado por FlutterFire CLI
+import 'gastos_page.dart'; //
+import 'home_screen.dart';
+import 'introduccion.dart';
+import 'login_screen.dart';
+import 'main_app.dart';
+import 'profile_page.dart';
+import 'register_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +37,9 @@ class MyApp extends StatelessWidget {
       // Usamos StreamBuilder para controlar sesión
       home: AuthenticationWrapper(),
       routes: {
+        '/android': (context) => MainApp(), // Pantalla de bienvenida
+        '/bienvenida': (context) => BienvenidaApp(), // Pantalla de bienvenida
+        '/introduccion': (context) => IntroduccionApp(), // Pantalla de introducción
         '/login': (context) => LoginScreen(),
         '/home': (context) => HomePage(),
         '/register': (context) => RegisterScreen(),

@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Hola, Pablo', style: TextStyle(fontSize: 12)),
+                        Text('Hola, Adrian', style: TextStyle(fontSize: 12)),
                         SizedBox(height: 8),
                         Text('\$99.30', style: titleStyle),
                       ],
