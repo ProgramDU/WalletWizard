@@ -55,7 +55,8 @@ class HistoryScreen extends StatelessWidget {
             trailing: Text(
               '-\$${gasto['monto'].toStringAsFixed(2)}',
               style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
-           
+            
+
             ),
           );
         },

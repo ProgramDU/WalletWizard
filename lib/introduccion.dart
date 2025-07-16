@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'main.dart'; // Para acceder a AuthenticationWrapper
 
 class IntroduccionApp extends StatelessWidget {
   const IntroduccionApp({super.key});
 
+  Future<void> _continuar(BuildContext context) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('bienvenidaVista', true);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const AuthenticationWrapper()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue, // Fondo azul
+      backgroundColor: Colors.blue,
       body: Stack(
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 60), // Espacio desde arriba
-              Center(
+              const SizedBox(height: 60),
+              const Center(
                 child: Text(
                   'Controla tus gastos, protege tu dinero y alcanza tus objetivos financieros',
                   style: TextStyle(
@@ -23,45 +35,23 @@ class IntroduccionApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(), // Empuja el contenedor blanco hacia abajo
+              const Spacer(),
               Container(
                 height: 350,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(30), // Solo esquinas superiores redondeadas
+                    top: Radius.circular(30),
                   ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      'assets/images/introduccion2.png',
-                      height: 150,
-                    ),
-                    SizedBox(height: 20),
+                    // Aquí puedes poner una imagen o lo que gustes
                     ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => IntroduccionApp(),
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white,
-                        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      child: Text(
-                        'Siguiente',
-                        style: TextStyle(fontSize: 16),
-                      ),
+                      onPressed: () => _continuar(context),
+                      child: const Text('¡Comenzar!'),
                     ),
                   ],
                 ),

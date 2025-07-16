@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -87,8 +88,9 @@ class ProfilePage extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.red),
               title: const Text('Cerrar sesión', style: TextStyle(color: Colors.red)),
-              onTap: () {
-                // TODO: implementar logout
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.of(context).pushNamedAndRemoveUntil('/login', (route) => false);
               },
             ),
           ],
