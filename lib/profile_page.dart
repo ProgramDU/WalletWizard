@@ -30,7 +30,7 @@ class ProfilePage extends StatelessWidget {
                 const CircleAvatar(
                   radius: 30,
                   backgroundImage: NetworkImage(
-                    'https://via.placeholder.com/150', // cambia por foto real
+                    'https://via.placeholder.com/150',
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -38,9 +38,9 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      Text('Pablo', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                      Text('Adrian', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                       SizedBox(height: 4),
-                      Text('pablodbjs@gmail.com', style: TextStyle(fontSize: 12, color: Colors.grey)),
+                      Text('adriandu@gmail.com', style: TextStyle(fontSize: 12, color: Colors.grey)),
                     ],
                   ),
                 ),
